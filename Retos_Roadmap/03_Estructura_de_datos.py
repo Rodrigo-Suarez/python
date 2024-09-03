@@ -193,53 +193,65 @@ print(my_set)
  - También se debe proponer una operación de finalización del programa.
  """
 
-class contact:
-  def __init__(self, name, number, id):
-      self.name = name
-      self.number = number
-      self.id = id
-
-  def __str__(self):
-     return f"##########\nID: {self.id}\nNombre: {self.name}\nNúmero: {self.number}\n"
+class Contact:
+  def __init__(self, name, number):
+    self.name = name
+    self.number = number
   
-      
-contact_list = []
+  def __repr__(self):
+    return f'##########\nNombre: {self.name}\nNumero de telefono: {self.number}'
 
 
-def add_contact(name, number):
+class ContactList:
+  def __init__(self):
+    self.contacts = {}
+
+  def show_contacts(self):
+    for contact in self.contacts.values():
+      print(contact)
+
+  def add_contact(self, name, number):
     
     if len(str(number)) > 11:
       return print("Error: El numero de telefono no puede tener mas de 11 digitos")
 
     else:
-      contact_id = len(contact_list)
-      user = contact(name, number, contact_id)
-      contact_list.append(user)
+      self.contacts[name] = Contact(name, number)
 
     return print("El usuario se ha añadido con exito")
-     
+  
+  def search_contact(name):
+   pass
+
+contact_list = ContactList()
 
 while True:
   print("\n--- Menú ---")
   print("1. Ver todos los usuarios")
   print("2. Agregar un nuevo usuario")
-  print("3. Salir")
+  print("3. Buscar un usuario")
+  print("4. Salir")
   print("------------")
 
   opcion = input("Seleccione la accion que desea realizar: ")
-
+  
   if opcion == "1":
-    for user in contact_list:
-      print(user)
+    contact_list.show_contacts()
 
   elif opcion == "2":
     try:
-      add_contact(str(input("Ingrese el nombre:")), int(input("Ingresa el numero de telefono:")))
+      name = str(input("Ingrese el nombre:"))
+      number = int(input("Ingresa el numero de telefono:"))
+      contact_list.add_contact(name, number)
     
     except:
       print("Error: El numero de telefono no puede contener caracteres alfabeticos")
-
+  
   elif opcion == "3":
+    name = str(input("Ingrese el nombre a buscar:"))
+    contact_list.search_contact(name)
+
+  elif opcion == "4":
      print("Cerrando el sistema...")
      break
   
