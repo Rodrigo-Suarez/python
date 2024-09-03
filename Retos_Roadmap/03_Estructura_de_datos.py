@@ -200,7 +200,7 @@ class contact:
       self.id = id
 
   def __str__(self):
-     return f"##########\nID: {self.id}\nNombre: {self.name}\nNúmero: {self.number}\n##########"
+     return f"##########\nID: {self.id}\nNombre: {self.name}\nNúmero: {self.number}\n"
   
       
 contact_list = []
@@ -209,7 +209,7 @@ contact_list = []
 def add_contact(name, number):
     
     if len(str(number)) > 11:
-      return print("~~El numero de telefono no puede tener mas de 11 digitos~~")
+      return print("Error: El numero de telefono no puede tener mas de 11 digitos")
 
     else:
       contact_id = len(contact_list)
@@ -221,10 +221,27 @@ def add_contact(name, number):
 
 while True:
   print("\n--- Menú ---")
-  print("1. Agregar un nuevo usuario")
-  print("2. Ver todos los usuarios")
+  print("1. Ver todos los usuarios")
+  print("2. Agregar un nuevo usuario")
   print("3. Salir")
-  print("------------") 
-  add_contact(str(input("Ingrese el nombre:")), int(input("Ingresa el numero de telefono:")))
-  for user in contact_list:
-    print(user)
+  print("------------")
+
+  opcion = input("Seleccione la accion que desea realizar: ")
+
+  if opcion == "1":
+    for user in contact_list:
+      print(user)
+
+  elif opcion == "2":
+    try:
+      add_contact(str(input("Ingrese el nombre:")), int(input("Ingresa el numero de telefono:")))
+    
+    except:
+      print("Error: El numero de telefono no puede contener caracteres alfabeticos")
+
+  elif opcion == "3":
+     print("Cerrando el sistema...")
+     break
+  
+  else:
+     print("Seleccione una opción correcta")
