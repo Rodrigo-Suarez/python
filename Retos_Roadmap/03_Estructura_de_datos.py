@@ -199,7 +199,7 @@ class Contact:
     self.number = number
   
   def __repr__(self):
-    return f'##########\nNombre: {self.name}\nNumero de telefono: {self.number}'
+    return f'\n##########\nNombre: {self.name}\nNumero de telefono: {self.number}\n'
 
 
 class ContactList:
@@ -210,20 +210,30 @@ class ContactList:
     for contact in self.contacts.values():
       print(contact)
 
-  def add_contact(self, name, number):
-    
-    if len(str(number)) > 11:
-      return print("Error: El numero de telefono no puede tener mas de 11 digitos")
+  def add_contact(self, name):
+    if name in self.contacts:
+      return print("\n##########\nEl usuario ya existe\n##########\n")
 
     else:
-      self.contacts[name] = Contact(name, number)
+      number = input("Ingresa el numero de telefono:")
+      if verify_number(number):
+        self.contacts[name] = Contact(name, number)
+        return print("\n##########\nEl usuario se ha añadido con exito\n##########\n")
+    
+      else:
+        return print("\n##########\nError: El numero de telefono no puede tener mas de 11 digitos y debe ser numerico\n##########\n")
 
-    return print("El usuario se ha añadido con exito")
-  
+    
   def search_contact(name):
    pass
 
+
+def verify_number(number: str):
+  return number.isdigit() and len(number) <= 11
+
+
 contact_list = ContactList()
+
 
 while True:
   print("\n--- Menú ---")
@@ -238,22 +248,22 @@ while True:
   if opcion == "1":
     contact_list.show_contacts()
 
+
   elif opcion == "2":
-    try:
-      name = str(input("Ingrese el nombre:"))
-      number = int(input("Ingresa el numero de telefono:"))
-      contact_list.add_contact(name, number)
+    name = input("Ingrese el nombre:")
     
-    except:
-      print("Error: El numero de telefono no puede contener caracteres alfabeticos")
+    contact_list.add_contact(name)
   
+
   elif opcion == "3":
     name = str(input("Ingrese el nombre a buscar:"))
     contact_list.search_contact(name)
 
+
   elif opcion == "4":
-     print("Cerrando el sistema...")
-     break
+    print("\n##########\nCerrando el sistema...\n##########\n")
+    break
   
+
   else:
-     print("Seleccione una opción correcta")
+    print("\n##########\nSeleccione una opción correcta\n##########\n")
