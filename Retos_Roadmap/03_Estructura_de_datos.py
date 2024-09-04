@@ -247,12 +247,15 @@ class ContactList:
           print("3. Ambos")
           print("4. Cancelar operacion")
 
-          opcion = input("Seleccione la operacion que desea realizar")
+          opcion = input("Seleccione la operacion que desea realizar: ")
 
           match opcion:
+            # Caso: Carga de contacto
             case "1":
               name = input("Ingrese el nuevo nombre del contacto:")
-              self.contacts[name_original] = Contact(name, number)
+              contact = self.contacts.pop(name_original)
+              self.contacts[name] = Contact(name, contact.number)
+              return print("\n##########\nEl usuario se ha actualizado con exito\n##########\n")
             case "2":
               number = input("Ingresa el nuevo numero de telefono:")
               if verify_number(number):
@@ -262,16 +265,15 @@ class ContactList:
               else:
                 return print("\n##########\nError: El numero de telefono no puede tener mas de 11 digitos y debe ser numerico\n##########\n")
             case "3":
-              name = input("Ingrese el nuevo nombre del contacto:")
-              number = input("Ingresa el nuevo numero de telefono:")
+              name = input("Ingrese el nuevo nombre del contacto: ")
+              number = input("Ingresa el nuevo numero de telefono: ")
               if verify_number(number):
-                self.contacts[name_original] = Contact(name, number)
+                del self.contacts[name_original]
+                self.contacts[name] = Contact(name, number)
                 return print("\n##########\nEl usuario se ha actualizado con exito\n##########\n")
-                
+          
               else:
-                return print("\n##########\nError: El numero de telefono no puede tener mas de 11 digitos y debe ser numerico\n##########\n")
-
-              
+                return print("\n##########\nError: El numero de telefono no puede tener mas de 11 digitos y debe ser numerico\n##########\n")   
             case "4":
               print("\n##########\nCancelando la operación...\n##########\n")
               break
@@ -288,6 +290,9 @@ def verify_number(number: str):
 
 contact_list = ContactList()
 
+# do{
+#   # Aca iria tu codigo
+# } while(opcion != 6)
 
 while True:
   print("\n--- Menú ---")
