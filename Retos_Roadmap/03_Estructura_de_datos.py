@@ -203,29 +203,83 @@ class Contact:
 
 
 class ContactList:
-  def __init__(self):
-    self.contacts = {}
+    def __init__(self):
+      self.contacts = {}
 
-  def show_contacts(self):
-    for contact in self.contacts.values():
-      print(contact)
+    def show_contacts(self):
+      for contact in self.contacts.values():
+        print(contact)
 
-  def add_contact(self, name):
-    if name in self.contacts:
-      return print("\n##########\nEl usuario ya existe\n##########\n")
+    def add_contact(self, name):
+      if name in self.contacts:
+        return print("\n##########\nEl usuario ya existe\n##########\n")
 
-    else:
-      number = input("Ingresa el numero de telefono:")
-      if verify_number(number):
-        self.contacts[name] = Contact(name, number)
-        return print("\n##########\nEl usuario se ha añadido con exito\n##########\n")
+      else:
+        number = input("Ingresa el numero de telefono:")
+        if verify_number(number):
+          self.contacts[name] = Contact(name, number)
+          return print("\n##########\nEl usuario se ha añadido con exito\n##########\n")
+    
+        else:
+          return print("\n##########\nError: El numero de telefono no puede tener mas de 11 digitos y debe ser numerico\n##########\n")
+
+    def search_contact(self, name):
+      if name in self.contacts:
+        return print(self.contacts[name])
+   
+      else:
+        return print("\n##########\nEl usuario no existe\n##########\n")
+   
+    def delete_contact(self, name):
+      if name in self.contacts:
+        del self.contacts[name]
+        return print("\n##########\nEl usuario ha sido eliminado correctamente\n##########\n")
     
       else:
-        return print("\n##########\nError: El numero de telefono no puede tener mas de 11 digitos y debe ser numerico\n##########\n")
-
+        return print("\n##########\nEl usuario no existe\n##########\n")
     
-  def search_contact(name):
-   pass
+    def modify_contact(self, name_original):
+      if name_original in self.contacts:
+        while True:
+          print("\n--¿Que desea modificar?--")
+          print("1. Nombre")
+          print("2. Numero de telefono")
+          print("3. Ambos")
+          print("4. Cancelar operacion")
+
+          opcion = input("Seleccione la operacion que desea realizar")
+
+          match opcion:
+            case "1":
+              name = input("Ingrese el nuevo nombre del contacto:")
+              self.contacts[name_original] = Contact(name, number)
+            case "2":
+              number = input("Ingresa el nuevo numero de telefono:")
+              if verify_number(number):
+                self.contacts[name_original] = Contact(name_original, number)
+                return print("\n##########\nEl usuario se ha actualizado con exito\n##########\n")
+              
+              else:
+                return print("\n##########\nError: El numero de telefono no puede tener mas de 11 digitos y debe ser numerico\n##########\n")
+            case "3":
+              name = input("Ingrese el nuevo nombre del contacto:")
+              number = input("Ingresa el nuevo numero de telefono:")
+              if verify_number(number):
+                self.contacts[name_original] = Contact(name, number)
+                return print("\n##########\nEl usuario se ha actualizado con exito\n##########\n")
+                
+              else:
+                return print("\n##########\nError: El numero de telefono no puede tener mas de 11 digitos y debe ser numerico\n##########\n")
+
+              
+            case "4":
+              print("\n##########\nCancelando la operación...\n##########\n")
+              break
+            case _:
+              print("\n##########\nSeleccione una opción correcta\n##########\n")
+
+      else:
+        return print("\n##########\nEl usuario no existe\n##########\n")
 
 
 def verify_number(number: str):
@@ -240,30 +294,37 @@ while True:
   print("1. Ver todos los usuarios")
   print("2. Agregar un nuevo usuario")
   print("3. Buscar un usuario")
-  print("4. Salir")
+  print("4. Eliminar un usuario")
+  print("5. Modificar un usuario")
+  print("6. Salir")
   print("------------")
 
   opcion = input("Seleccione la accion que desea realizar: ")
   
-  if opcion == "1":
-    contact_list.show_contacts()
+  match opcion:
 
+    case "1":
+      contact_list.show_contacts()
 
-  elif opcion == "2":
-    name = input("Ingrese el nombre:")
-    
-    contact_list.add_contact(name)
+    case "2":
+      name = input("Ingrese el nombre del contacto:")
+      contact_list.add_contact(name)
   
+    case "3":
+      name = input("Ingrese el nombre del contacto a buscar:")
+      contact_list.search_contact(name)
 
-  elif opcion == "3":
-    name = str(input("Ingrese el nombre a buscar:"))
-    contact_list.search_contact(name)
+    case "4":
+      name = input("Ingrese el nombre del contacto a eliminar:")
+      contact_list.delete_contact(name)
 
+    case "5":
+      name = input("Ingrese el nombre del contacto a modificar:")
+      contact_list.modify_contact(name)
 
-  elif opcion == "4":
-    print("\n##########\nCerrando el sistema...\n##########\n")
-    break
+    case "6":
+      print("\n##########\nCerrando el sistema...\n##########\n")
+      break
   
-
-  else:
-    print("\n##########\nSeleccione una opción correcta\n##########\n")
+    case _:
+      print("\n##########\nSeleccione una opción correcta\n##########\n")
