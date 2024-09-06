@@ -146,8 +146,21 @@ def anagramas(w1, w2):
     else:
         print(f"Las palabras {w1} y {w2} no son anagramas")
 
-def isogramas(w1, w2):
-    pass
+
+def isogramas(w1):
+    dictionary = {}
+    for i in w1:
+        word = i
+        reps = w1.count(i) 
+        dictionary[word] = reps
+    
+    for key in dictionary:
+        if dictionary[key] == dictionary[word]:
+            continue
+        else: 
+            return print(f"La palabra {w1} no es un anagrama")
+        
+    return print(f"La palabra {w1} es un anagrama")
 
 
 w1 = str(input("Ingrese la primera palabra: "))
@@ -156,6 +169,6 @@ w2 = str(input("Ingrese la segunda palabra: "))
 palindromos(w1.lower())
 palindromos(w2.lower())
 anagramas(w1.lower(), w2.lower())
-#isogramas(w1.lower(), w2.lower())
-
+isogramas(w1.lower())
+isogramas(w2.lower())
 
