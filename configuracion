@@ -1,0 +1,56 @@
+{
+    "workbench.colorCustomizations": {
+   "editor.background": "#1e1e1e",  // Cambia este valor por el color hexadecimal que prefieras
+   
+   "sideBar.background": "#242323",   // Cambia este valor por el color hexadecimal que prefieras
+   "sideBar.foreground": "#d9d9d9",   // Cambia este valor para modificar el color del texto en la barra lateral
+   "sideBar.border": "#31313130",       // (Opcional) Cambia este valor para ajustar el color del borde de la barra lateral
+   "sideBarTitle.foreground": "#767676", // Cambia el color del título de la barra lateral
+   "sideBarSectionHeader.background": "#2c2c2c", // Color del encabezado de las secciones
+   "sideBarSectionHeader.foreground": "#d9d9d9",  // Color del texto del encabezado de las secciones
+   
+   "terminal.background": "#1e1e1e",   
+   "panel.background": "#1c1c1c",           // Color de fondo del panel inferior
+   "panel.border": "#3d3c3c57",               // Color del borde del panel inferior
+   "panelTitle.activeForeground": "#d9d9d9", // Color del título activo en el panel
+   "panelTitle.inactiveForeground": "#aaaaaa", // Color del título inactivo en el panel
+
+   "tab.activeBackground": "#242424",       // Color de fondo de la pestaña activa
+   "tab.activeForeground": "#d9d9d9",       // Color del texto en la pestaña activa
+   "tab.inactiveBackground": "#272727",     // Color de fondo de las pestañas inactivas
+   "tab.inactiveForeground": "#bebdbd",     // Color del texto en las pestañas inactivas
+   "tab.border": "#1f1f1f",                 // Color del borde de las pestañas
+
+   "dropdown.background": "#201f1f",        // Color de fondo del menú desplegable
+   "dropdown.foreground": "#a6a6a6",        // Color del texto del menú desplegable
+   "dropdown.border": "#68676a",            // Color del borde del menú desplegable
+
+   "menu.background": "#2c2a2a",            // Color de fondo del menú
+   "menu.foreground": "#d9d9d9",            // Color del texto del menú
+   "menu.selectionBackground": "#094771",   // Color de fondo del ítem seleccionado en el menú
+   "menu.selectionForeground": "#ffffff",   // Color del texto del ítem seleccionado en el menú
+
+   "list.activeSelectionBackground": "#2d2c2c", // Color de fondo de la selección activa
+   "list.activeSelectionForeground": "#d9d9d9", // Color del texto de la selección activa
+   "list.hoverBackground": "#2a2d2e",          // Color de fondo al pasar el mouse
+   "list.inactiveSelectionBackground": "#3c3c3c", // Color de la selección inactiva
+   "list.inactiveSelectionForeground": "#2a2a2a", // Color del texto de la selección inactiva
+
+   "statusBar.background": "#171717",       // Color de fondo de la barra de estado (parte inferior)
+   "statusBar.foreground": "#aeadad",       // Color del texto en la barra de estado
+   "statusBar.debuggingBackground": "#cc6633", // Color de fondo durante la depuración
+   "statusBar.noFolderBackground": "#68217a",  // Color cuando no hay carpeta abierta
+
+   "activityBar.background": "#1e1e1e",     // Color de fondo de la barra de actividad (parte izquierda)
+   "activityBar.foreground": "#ffffff",     // Color del ícono activo en la barra de actividad
+   "activityBarBadge.background": "#0471ba", // Color de fondo de la insignia en la barra de actividad
+   "activityBarBadge.foreground": "#e2e2e2",  // Color del texto de la insignia en la barra de actividad
+
+   "titleBar.activeBackground": "#242525",   // Color de fondo de la barra de título cuando está activa
+   "titleBar.activeForeground": "#c8c8c8",   // Color del texto en la barra de título activa
+   "titleBar.inactiveBackground": "#3c3c3c", // Color de fondo cuando la ventana no está activa
+   "titleBar.inactiveForeground": "#cccccc", // Color del texto en la barra de título inactiva
+   "titleBar.border": "#1a1a1a"              // Color del borde de la barra de título
+}
+
+}
