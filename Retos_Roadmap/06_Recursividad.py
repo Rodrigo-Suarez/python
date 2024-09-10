@@ -21,7 +21,7 @@ recursion()
  - Calcular el valor de un elemento concreto (según su posición) en la 
    sucesión de Fibonacci (la función recibe la posición).
 """  
-
+"""
 def factorial(n):
     if n == 1:
         return 1
@@ -29,9 +29,12 @@ def factorial(n):
         return n * factorial(n - 1)
 
 print(factorial(5))
-
+"""
 
 def fibonacci(n):
-   pass
+   if n <= 1:
+       return n
+   else:
+       return fibonacci(n - 2) + fibonacci(n - 1)
 
-fibonacci(7)
+print(fibonacci(99))
