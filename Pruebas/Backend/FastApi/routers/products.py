@@ -14,11 +14,14 @@ prod_list = [User(id=1, name="producto 1"),
              User(id=4, name="producto 4"),
              User(id=5, name="producto 5")]
 
-
+# /products
+# Ex. http://localhost:3001/products?category=electrodomesticos
 @router.get("/")
 async def product():
     return prod_list
 
+# products/:id
+# Ex. http://localhost:3001/products/1
 @router.get("/{id}")
 async def product(id: int):
     return await search_prod(id)

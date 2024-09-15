@@ -1,6 +1,10 @@
-def find_needle(haystack):
-    return f"found the needle at position {haystack.index("needle")}"
 
+def invert(lst):
+    lista = []
+    for n in range(len(lst)):
+        lista.append(lst[n]*-1)
+    return lista
+lista = [1, -2, 3, -4, 5]
+print(invert(lista))
 
-array = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]
-print(find_needle(array))
+print(lista)
